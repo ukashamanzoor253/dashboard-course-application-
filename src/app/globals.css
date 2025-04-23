@@ -1,4 +1,15 @@
 @import "tailwindcss";
+@import "tailwindcss";
+@theme{
+  --color-org : #F86537;
+  --color-blu : #1176C1;
+  --font-hanken: "Hanken Grotesk", sans-serif; 
+
+
+}
+@theme{
+  --color-blue-600 : #2563eb;
+}
 
 :root {
   --background: #ffffff;
