@@ -13,7 +13,7 @@ import AddUser from "../component/AddUser";
 import ViewUser from "../component/ViewUser";
 import Setting from "../component/Setting";
 import CourseHistory from "../component/CourseHistory";
-import AddCourses from "../component/AddCourses"
+import AddCourses from "../component/AddCourses";
 
 function StudentDashboard() {
   const [activeItem, setActiveItem] = React.useState("dashboard");

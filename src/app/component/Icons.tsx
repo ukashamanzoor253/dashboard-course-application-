@@ -539,14 +539,14 @@ export const LogoutIcon: React.FC = () => (
   </svg>
 );
 
-export const AddUserIcon: React.FC = () => (
+export const AddUserIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
   <svg
     width="24"
     height="24"
     viewBox="0 0 24 24"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
-    className="add-icon"
+    className={`add-icon ${props.className || ''}`}
   >
     <path
       d="M2 21.0004C1.99992 19.4608 2.44413 17.9538 3.27935 16.6603C4.11456 15.3669 5.30527 14.3419 6.7086 13.7085C8.11193 13.075 9.66824 12.8599 11.1908 13.0891C12.7133 13.3183 14.1373 13.9819 15.292 15.0004"
@@ -579,15 +579,14 @@ export const AddUserIcon: React.FC = () => (
   </svg>
 );
 
-export const ViewIcon: React.FC = () => (
+export const ViewIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
   <svg
     width="24"
     height="24"
     viewBox="0 0 24 24"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
-    className="action-icon"
-  >
+    className={`action-icon ${props.className || ''}`}>
     <path
       d="M2.06153 12.3484C1.97819 12.1238 1.97819 11.8769 2.06153 11.6524C2.87323 9.68421 4.25104 8.0014 6.0203 6.81726C7.78955 5.63312 9.87057 5.00098 11.9995 5.00098C14.1285 5.00098 16.2095 5.63312 17.9788 6.81726C19.748 8.0014 21.1258 9.68421 21.9375 11.6524C22.0209 11.8769 22.0209 12.1238 21.9375 12.3484C21.1258 14.3165 19.748 15.9993 17.9788 17.1835C16.2095 18.3676 14.1285 18.9997 11.9995 18.9997C9.87057 18.9997 7.78955 18.3676 6.0203 17.1835C4.25104 15.9993 2.87323 14.3165 2.06153 12.3484Z"
       stroke="#2490E0"
@@ -605,14 +604,14 @@ export const ViewIcon: React.FC = () => (
   </svg>
 );
 
-export const ArrowLeftIcon: React.FC = () => (
+export const ArrowLeftIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
   <svg
     width="20"
     height="21"
     viewBox="0 0 20 21"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
-    className="page-icon"
+    className={`page-icon ${props.className || ''}`}
   >
     <path
       d="M8.88922 4.66602L3.33366 10.4994M3.33366 10.4994L8.88922 16.3327M3.33366 10.4994L16.667 10.4993"
@@ -624,14 +623,15 @@ export const ArrowLeftIcon: React.FC = () => (
   </svg>
 );
 
-export const ArrowRightIcon: React.FC = () => (
+export const ArrowRightIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
   <svg
     width="20"
     height="21"
     viewBox="0 0 20 21"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
-    className="page-icon"
+    className={`page-icon ${props.className || ''}`}
+
   >
     <path
       d="M11.1108 4.66602L16.6663 10.4994M16.6663 10.4994L11.1108 16.3327M16.6663 10.4994L3.33301 10.4993"

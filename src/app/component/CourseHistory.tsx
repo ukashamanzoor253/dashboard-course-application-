@@ -56,7 +56,11 @@ const courseHistoryData = [
 ];
 
 // Status badge component
-function StatusBadge({ status }) {
+const StatusBadge = ({
+  status,
+}: {
+  status: "Success" | "Processing" | "Canceled" | "On Hold";
+}) => {
   const statusStyles = {
     Success: "text-green-600 bg-emerald-50",
     Processing: "text-sky-500 bg-blue-50",
@@ -65,13 +69,11 @@ function StatusBadge({ status }) {
   };
 
   return (
-    <span
-      className={`text-sm px-2.5 py-1 rounded-md ${statusStyles[status]}`}
-    >
+    <span className={`text-sm px-2.5 py-1 rounded-md ${statusStyles[status]}`}>
       {status}
     </span>
   );
-}
+};
 
 function CourseHistoryTable() {
   return (
@@ -94,13 +96,24 @@ function CourseHistoryTable() {
         {/* Table rows */}
         <div className="divide-y divide-slate-100">
           {courseHistoryData.map((course, index) => (
-            <div key={index} className="grid grid-cols-5 gap-4 py-4 px-4 text-sm text-gray-500">
+            <div
+              key={index}
+              className="grid grid-cols-5 gap-4 py-4 px-4 text-sm text-gray-500"
+            >
               <div>{course.id}</div>
               <div>{course.name}</div>
               <div>{course.date}</div>
               <div>{course.price}</div>
               <div>
-                <StatusBadge status={course.status} />
+                <StatusBadge
+                  status={
+                    course.status as
+                      | "Success"
+                      | "Processing"
+                      | "Canceled"
+                      | "On Hold"
+                  }
+                />
               </div>
             </div>
           ))}
