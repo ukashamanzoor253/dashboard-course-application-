@@ -34,7 +34,7 @@ const StatCard: React.FC<StatCardProps> = ({
 const DashboardStats = () => {
   return (
     <section className="flex flex-col mt-10 max-md:max-w-full">
-      <h2 className="self-start text-3xl font-semibold text-neutral-900">
+      <h2 className="self-start text-2xl font-bold text-neutral-900">
         Dashboard
       </h2>
       <div className="flex flex-nowrap gap-3 flex-row items-center mt-5 max-md:max-w-full">

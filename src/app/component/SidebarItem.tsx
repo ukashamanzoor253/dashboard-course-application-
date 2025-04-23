@@ -1,13 +1,14 @@
 "use client";
-import { LucideIcon } from "lucide-react";
 import React from "react";
+import { IconType } from "react-icons";
 
 interface SidebarItemProps {
-  icon: LucideIcon;
+  icon: IconType;
   label: string;
   isActive?: boolean;
   isLogout?: boolean;
-  onClick?: () => void;
+  collapsed?: boolean;
+  onClick: () => void;
 }
 
 const SidebarItem: React.FC<SidebarItemProps> = ({
@@ -15,25 +16,31 @@ const SidebarItem: React.FC<SidebarItemProps> = ({
   label,
   isActive = false,
   isLogout = false,
+  collapsed = false,
   onClick,
 }) => {
-  // Dynamic classes based on state
-  const textColor = isActive
-    ? "text-white"
-    : isLogout
-    ? "text-red-500 hover:text-red-400"
-    : "text-slate-600 hover:text-slate-800";
-
-  const bgColor = isActive ? "bg-blue-600" : "hover:bg-slate-100";
-  const iconColor = isActive ? "text-white" : "text-current";
-
   return (
     <button
       onClick={onClick}
-      className={`flex gap-5 items-center mt-2 first:mt-0 ${textColor} ${bgColor} w-full text-left p-3 rounded-lg transition-colors duration-200`}
+      className={`flex items-center w-full p-3 rounded-lg transition-colors ${
+        isActive
+          ? "bg-blue-50 text-blue-600"
+          : "hover:bg-gray-100 text-gray-700"
+      } ${isLogout ? "mt-2" : "mb-2"} ${
+        collapsed ? "justify-center" : "justify-start"
+      }`}
     >
-      <Icon className={`w-5 h-5 shrink-0 ${iconColor}`} />
-      <span className="text-sm font-medium">{label}</span>
+      <Icon className={`${isActive ? "text-blue-600" : "text-gray-500"} w-5 h-5`} />
+      {!collapsed && (
+        <span className={`ml-3 ${isLogout ? "text-red-500" : ""}`}>
+          {label}
+        </span>
+      )}
+      {collapsed && (
+        <div className="absolute left-full ml-2 px-2 py-1 bg-gray-800 text-white text-sm rounded opacity-0 group-hover:opacity-100 transition-opacity">
+          {label}
+        </div>
+      )}
     </button>
   );
 };
